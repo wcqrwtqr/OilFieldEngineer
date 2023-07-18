@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+      # Below makes the code in my machine linked to the docker contianer and can change it as I change it
+    volumes:
+      - .:/code
+
+
+
+
+# version: '3.9'
+
+# services:
+#   web:
+#     container_name: flask_engineer_site
+#     build :
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - '8080:8080'
+#     command: python3.11 app.py
+#     volumes:
+#       - .:/code
+#     env_file:
+#       - ./.env

@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="container mt-2">
+  <h1 class="display-6">Conversion</h1>
+  <form class="row gx-3 gy-2 align-items-center" method="POST" , action="/conversion_temperature">
+    <div class="col-sm-3">
+      <label class="visually-hidden" for="inputval">Temperature DegC</label>
+      <input type="number" name='inputval' class="form-control" id="inputval" value="" placeholder="Temperature" required>
+    </div>
+    <div class="col-sm-3">
+      <label class="visually-hidden" for="selected_temp">Preference</label>
+      <select class="form-select" id="selected_temp" name="selected_temp">
+        <!-- <option >Choose...</option> -->
+        <option value="1" selected >DegC to DegF</option>
+        <option value="2">DegF to DegC</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  <br />
+  <div class="container">
+    {% if input_val %}
+
+    {% if choice == '1' %}
+    <p class='display-6'>{{input_val}} Degree Celsius = {{ result }} Degree Fahrenheit</p>
+    {% endif %}
+
+    {% if choice == '2' %}
+    <p class='display-6'>{{input_val}} Degree Fahrenheit = {{ result }} Degree Celsius</p>
+    {% endif %}
+
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}
