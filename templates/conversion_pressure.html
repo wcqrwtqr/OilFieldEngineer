@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="container mt-2">
+  <h1 class="display-6">Conversion Pressure</h1>
+  <form class="row gx-3 gy-2 align-items-center" method="POST" , action="/conversion_pressure">
+    <div class="col-sm-5">
+      <label class="visually-hidden" for="inputval">Pressure</label>
+      <input type="number" name='inputval' class="form-control" id="inputval" value="" placeholder="Perssure" required>
+    </div>
+    <div class="col-sm-5">
+      <label class="visually-hidden" for="selected_pressure">Preference</label>
+      <select class="form-select" id="selected_pressure" name="selected_pressure">
+        <!-- <option >Choose...</option> -->
+        <option value="1" selected>psi to bar</option>
+        <option value="2">bar to psi</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+  <br />
+  <div class="container">
+    {% if input_val %}
+
+    {% if choice == '1' %}
+    <div class="card">
+      <div class="card-body">
+        <strong class="text-secondary">{{input_val}}</strong> psi = <strong class="text-primary">{{ result }}</strong> bar
+      </div>
+    </div>
+    {% endif %}
+
+    {% if choice == '2' %}
+    <div class="card">
+      <div class="card-body">
+        <strong class="text-secondary">{{input_val}}</strong> bar = <strong class="text-primary">{{ result }}</strong> psi
+      </div>
+    </div>
+    {% endif %}
+
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

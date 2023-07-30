@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<div class="container">
+  <h1>Weather for {{ weather.name }} {{weather.country}}</h1>
+  <p>Description: {{ weather.description }}</p>
+  <p>Temperature: {{ weather.temperature }} K</p>
+  <p>Humidity: {{ weather.humidity }}%</p>
+
+  <a href="{{url_for('weather')}}" class="btn btn-primary" role="button">Back</a>
+</div>
+
+{% endblock %}

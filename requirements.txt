@@ -1,1 +1,5 @@
 Flask==2.3.2
+Flask-SQLAlchemy==3.0.5
+aiohttp==3.8.5
+async==0.6.2
+flask[async]

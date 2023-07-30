@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<div class="container">
+  <h1>Weather App</h1>
+  <br />
+  <form action="/weather" method="POST">
+
+    <div class="row">
+      <div class="col">
+        <input type="text" id="lat" name="lat" required class="form-control" placeholder="Enter latitude" aria-label="lat">
+      </div>
+      <div class="col">
+        <input type="text" id="lon" name="lon" class="form-control" placeholder="Enter longitude" aria-label="Last name">
+      </div>
+    </div>
+    <br />
+    <div>
+      <button type="submit" class="btn btn-primary btn-sm">Get Weather</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

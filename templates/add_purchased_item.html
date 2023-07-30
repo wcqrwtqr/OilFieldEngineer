@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<h1>Add Purchased Item</h1>
+    <form method="post">
+        {{ csrf_token() }}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required>
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" name="price" required>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Added Items:</h2>
+    <ul>
+        {% for item in purchased_items %}
+            <li>{{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}</li>
+        {% else %}
+            <li>No items added yet.</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
